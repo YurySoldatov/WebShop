@@ -19,10 +19,12 @@ from django.contrib import admin
 from django.urls import path, include
 from django.contrib.sitemaps.views import sitemap
 
+from .views import MainPageView
 from .sitemaps import sitemaps
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', MainPageView.as_view(), name='main_page'),
     path('shop/', include('shopapp.urls')),
     path('myauth/', include('myauth.urls')),
     path('blog/', include('blogapp.urls')),
